@@ -1,4 +1,46 @@
 ﻿@page
+@using RazorPagesApp.Models;
 @model RazorPagesApp.Pages.PeopleModel
 @{
+
+    <h1>People</h1>
+    <form method="post">
+
+        <input type="number" name="id" placeholder="Id"></input>
+        <input type="text" name="name" placeholder="Name"></input>
+        <input type="number" name="age" placeholder="Age"></input>
+        <button type="submit" class="btn btn-primary">Add</button>
+
+    </form>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Person person in Model.People)
+            {
+                <tr>
+                    <td>
+                        @person.Id
+                    </td>
+                    <td>
+                        @person.Name
+                    </td>
+                    <td>
+                        @person.Age
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
 }
